@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="TransExpressTest(failed)">
+    <classes>
+      <class name="com.test.trans.client.main.MyOrders">
+        <methods>
+          <include name="quitBrowser"/>
+          <include name="verifyPartiallyDeliveredOrderStatistics"/>
+          <include name="reportDownload"/>
+          <include name="verifyReceivedByClientsOrderStatistics"/>
+          <include name="verifyReturnedToClientsOrderStatistics"/>
+          <include name="setup"/>
+          <include name="verifyAdvancedSearch"/>
+        </methods>
+      </class> <!-- com.test.trans.client.main.MyOrders -->
+    </classes>
+  </test> <!-- TransExpressTest(failed) -->
+</suite> <!-- Failed suite [Default Suite] -->

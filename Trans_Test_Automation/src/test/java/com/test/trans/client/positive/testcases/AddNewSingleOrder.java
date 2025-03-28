@@ -24,8 +24,8 @@ public class AddNewSingleOrder {
         System.setProperty("webdriver.chrome.driver", "D:\\Parallax\\TransEx_V2_Automation\\Trans_Test_Automation\\src\\main\\resources\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().deleteAllCookies(); // Start fresh
-        wait = new WebDriverWait(driver, Duration.ofSeconds(30)); // Increased timeout
+        driver.manage().deleteAllCookies();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         // Setup report
         ExtentSparkReporter spark = new ExtentSparkReporter("test-output/AddNewSingleOrderReport.html");

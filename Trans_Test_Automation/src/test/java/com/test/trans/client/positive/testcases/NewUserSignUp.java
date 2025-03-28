@@ -185,31 +185,30 @@ public class NewUserSignUp {
             ));
 
 // Fill in the form
-            driver.findElement(By.xpath("//input[@placeholder='Enter your bank account name']")).sendKeys("Aki Rana");
-            driver.findElement(By.xpath("//input[@placeholder='Enter your account no']")).sendKeys("123456789012");
-            driver.findElement(By.xpath("//input[@placeholder='Enter branch name']")).sendKeys("Colombo Main");
-            driver.findElement(By.xpath("//input[@placeholder='Enter branch id']")).sendKeys("CM123");
-            driver.findElement(By.xpath("//input[@placeholder='Enter bank name']")).sendKeys("Bank of QA");
+            driver.findElement(By.xpath("//input[@placeholder='Enter your bank account name']")).sendKeys("Sampath");
+            driver.findElement(By.xpath("//input[@placeholder='Enter your account no']")).sendKeys("8010407086");
+            driver.findElement(By.xpath("//input[@placeholder='Enter branch name']")).sendKeys("Colombo");
+            driver.findElement(By.xpath("//input[@placeholder='Enter branch id']")).sendKeys("123");
+            driver.findElement(By.xpath("//input[@placeholder='Enter bank name']")).sendKeys("Sampath");
 
             test.pass("Filled all bank account details");
 
 // Click "Create"
             WebElement createBtn = wait.until(ExpectedConditions.elementToBeClickable(
-                    By.xpath("//button[contains(text(),'Create')]")
+                    By.xpath("//button[.//span[text()='Create']]")
             ));
-            createBtn.click();
-            test.pass("Clicked 'Create' to submit the form");
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", createBtn);
+            test.pass("Clicked 'Create' button to submit the form");
+
 
 // Optional: Confirm success
-            // Confirm successful signup message (adjust the text based on actual confirmation)
-            WebElement successMsg = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                    By.xpath("//*[contains(text(),'successfully') or contains(text(),'Success') or contains(text(),'created')]")
+            // Wait for success toast
+            WebElement successToast = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath("//div[contains(@class,'toastify') and contains(text(),'Registration Successful')]")
             ));
+            test.pass("Success toast displayed: " + successToast.getText());
 
-            Assert.assertTrue(successMsg.isDisplayed(), "Success message not displayed!");
-            test.pass("Signup completed and success message displayed: " + successMsg.getText());
 
-            test.pass("Signup completed successfully 🎉");
 
 
 

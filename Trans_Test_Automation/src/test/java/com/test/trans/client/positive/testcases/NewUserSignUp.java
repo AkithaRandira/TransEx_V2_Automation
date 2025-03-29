@@ -164,7 +164,7 @@ public class NewUserSignUp {
                     By.xpath("//div[contains(@class,'text-2xl') and contains(text(),'Create Account')]")
             ));
 
-// Fill Delivery Email and Financial Email
+            // Fill Delivery Email
             String deliveryEmail = "delivery" + System.currentTimeMillis() + "@test.com";
             String financialEmail = "finance" + System.currentTimeMillis() + "@test.com";
 
@@ -172,7 +172,7 @@ public class NewUserSignUp {
             driver.findElement(By.xpath("//input[@placeholder='Enter financial email address']")).sendKeys(financialEmail);
             test.pass("Filled Delivery Email: " + deliveryEmail + " and Financial Email: " + financialEmail);
 
-// Click Next
+            // Click Next
             WebElement nextBtnStep4 = wait.until(ExpectedConditions.elementToBeClickable(
                     By.xpath("//button[contains(text(),'Next')]")
             ));
@@ -184,7 +184,7 @@ public class NewUserSignUp {
                     By.xpath("//div[contains(@class,'text-2xl') and contains(text(),'Create Account')]")
             ));
 
-// Fill in the form
+            // Fill in the form
             driver.findElement(By.xpath("//input[@placeholder='Enter your bank account name']")).sendKeys("Sampath");
             driver.findElement(By.xpath("//input[@placeholder='Enter your account no']")).sendKeys("8010407086");
             driver.findElement(By.xpath("//input[@placeholder='Enter branch name']")).sendKeys("Colombo");
@@ -193,7 +193,7 @@ public class NewUserSignUp {
 
             test.pass("Filled all bank account details");
 
-// Click "Create"
+           // Click "Create"
             WebElement createBtn = wait.until(ExpectedConditions.elementToBeClickable(
                     By.xpath("//button[.//span[text()='Create']]")
             ));
@@ -201,7 +201,7 @@ public class NewUserSignUp {
             test.pass("Clicked 'Create' button to submit the form");
 
 
-// Optional: Confirm success
+
             // Wait for success toast
             WebElement successToast = wait.until(ExpectedConditions.visibilityOfElementLocated(
                     By.xpath("//div[contains(@class,'toastify') and contains(text(),'Registration Successful')]")

@@ -109,13 +109,15 @@ public class AddNewSingleOrder {
             WebElement searchInput = wait.until(ExpectedConditions.visibilityOfElementLocated(
                     By.xpath("//input[@placeholder='Search...']")
             ));
-            searchInput.sendKeys("Colombo");
-            Thread.sleep(1000); // allow options to appear
+
+            searchInput.sendKeys("Galle");
+            Thread.sleep(1000);  // Wait for the dropdown to populate
 
             WebElement cityOption = wait.until(ExpectedConditions.elementToBeClickable(
-                    By.xpath("//label[contains(text(),'Colombo 01')]")
+                    By.xpath("//label[normalize-space()='Galle']")
             ));
             cityOption.click();
+
 
             driver.findElement(By.xpath("//input[@placeholder='Enter COD amount']")).sendKeys("6000");
             driver.findElement(By.xpath("//textarea[@placeholder='Enter remarks']")).sendKeys("Test remarks for order 01");

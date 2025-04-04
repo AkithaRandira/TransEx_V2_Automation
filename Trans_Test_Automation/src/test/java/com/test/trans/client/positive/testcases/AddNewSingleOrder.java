@@ -115,11 +115,13 @@ public class AddNewSingleOrder {
 
             WebElement cityOption = wait.until(ExpectedConditions.elementToBeClickable(
                     By.xpath("//label[normalize-space()='Galle']")
+
             ));
             cityOption.click();
 
 
-            driver.findElement(By.xpath("//input[@placeholder='Enter COD amount']")).sendKeys("6000");
+
+            driver.findElement(By.xpath("//input[@placeholder='Enter COD amount']")).sendKeys("4500");
             driver.findElement(By.xpath("//textarea[@placeholder='Enter remarks']")).sendKeys("Test remarks for order 01");
 
             WebElement submitBtn = wait.until(ExpectedConditions.elementToBeClickable(
